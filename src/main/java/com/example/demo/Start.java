@@ -11,7 +11,7 @@ public class Start {
         AppUser appUser= new AppUser();
         appUser.setUserName("Kornelia");
         appUser.setPassword(passwordEncoder.encode("123"));
-        appUser.setRole("Admin");
+        appUser.setRole("ROLE_ADMIN");
         appUserRepo.save(appUser);
     }
 }
