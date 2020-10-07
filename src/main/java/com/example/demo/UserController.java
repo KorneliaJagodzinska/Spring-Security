@@ -3,11 +3,18 @@ package com.example.demo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class UserController {
+  UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/hello")
     @ResponseBody
     public String hello(){
@@ -28,8 +35,9 @@ public class UserController {
         model.addAttribute("user", new AppUser());
         return "sign-up";
     }
-    @GetMapping("/register")
+    @PostMapping("/register")
     public String register(AppUser appUser){
+        userService.addUser(appUser);
         return "sign-up";
     }
 }
