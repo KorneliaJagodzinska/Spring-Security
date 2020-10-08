@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.model;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,6 +20,7 @@ public class AppUser implements UserDetails {
     private String userName;
     private String password;
     private String role;
+    private boolean isEnable;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

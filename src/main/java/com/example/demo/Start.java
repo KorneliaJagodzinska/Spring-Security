@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.model.AppUser;
+import com.example.demo.repo.AppUserRepo;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
