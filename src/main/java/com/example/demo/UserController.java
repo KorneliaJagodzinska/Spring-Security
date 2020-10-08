@@ -1,11 +1,17 @@
 package com.example.demo;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
+import java.util.Collection;
+import java.util.Collections;
 
 @Controller
 public class UserController {
@@ -16,20 +22,14 @@ public class UserController {
     }
 
     @GetMapping("/hello")
-    @ResponseBody
-    public String hello(){
+    public String hello(Principal principal, Model model){
+        model.addAttribute("name", principal.getName());
+        Collection<? extends GrantedAuthority> authorities=
+                 SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        model.addAttribute("authorities", authorities);
         return "hello";
     }
 
-    @GetMapping("/for-admin")
-    public String forAdmin(){
-        return "hello admin";
-    }
-
-    @GetMapping("/for-user")
-    public String forUser(){
-        return "hello user";
-    }
     @GetMapping("/sign-up")
     public String signUp(Model model){
         model.addAttribute("user", new AppUser());
