@@ -2,10 +2,13 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Title</title>
 </head>
 <body>
-Hello <span th:text="${name}"/>
+
+​Hello <span th:text="${name}"/>
+details:  <span th:text="${details}"/>
+Your role:
 <table>
     <th:block th:each="auth : ${authorities}">
         <tr>
