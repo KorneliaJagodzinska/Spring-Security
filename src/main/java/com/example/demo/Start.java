@@ -10,8 +10,8 @@ public class Start {
 
     public Start(AppUserRepo appUserRepo, PasswordEncoder passwordEncoder) {
         AppUser appUserJanusz = new AppUser();
-        appUserJanusz.setUsername("Janusz");
-        appUserJanusz.setPassword(passwordEncoder.encode("Janusz123"));
+        appUserJanusz.setUsername("Kornelia");
+        appUserJanusz.setPassword(passwordEncoder.encode("Kornelia123"));
         appUserJanusz.setRole("ROLE_ADMIN");
         appUserJanusz.setEnabled(true);
 
